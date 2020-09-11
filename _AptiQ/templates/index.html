@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AptiQ</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='button.css') }}">
+        <link rel="icon" href="{{ url_for('static',filename='icon.png') }}" type="png">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
+    <body style="background-color: #494949;">
+        <div class="jumbotron" style="border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; background-color: #262626;">
+            <h1 style="color: #d4d4d4;">AptiQ</h1>
+            <p id="type" style="color: #d4d4d4;">Genius consists of equal parts of natural aptitude and hard work.</p>
+        </div>
+        <div class="container-fluid">
+            <div class="row" style="text-align: center;">
+                <div class="col-sm-4">
+                    <div class="card" style="margin: 10px; color: #d4d4d4; border-radius: 15px; background-color: #404040; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 15px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <div class="card-body" style="background-image: linear-gradient(60deg, #008751, #005734) ; border-radius: 15px;">
+                            <h5 class="card-title">Easy</h5>
+                            <p class="card-text">Solve 10 questions in 20 minutes</p>
+                            <form action="/easy">
+                                <button class="button" type="submit" style="background-color: #005734;"><span>Start Test </span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card" style="margin: 10px; color: #d4d4d4; border-radius: 15px; background-color: #404040; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 15px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <div class="card-body" style="background-image: linear-gradient(60deg, #002499, #001866); border-radius: 15px;">
+                            <h5 class="card-title">Medium</h5>
+                            <p class="card-text">Solve 15 questions in 20 minutes</p>
+                            <form action="/medium">
+                                <button class="button" type="submit" style="background-color: #001866;"><span>Start Test </span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card" style="margin: 10px; color: #d4d4d4; border-radius: 15px; background-color: #404040; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 15px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <div class="card-body" style="background-image: linear-gradient(60deg, #940000, #660000); border-radius: 15px;">
+                            <h5 class="card-title">Hard</h5>
+                            <p class="card-text">Solve 20 questions in 20 minutes</p>
+                            <form action="/hard">  
+                                <button class="button" type="submit" style="background-color: #660000;"><span>Start Test </span></button>
+                            </form> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </body>
+</html>

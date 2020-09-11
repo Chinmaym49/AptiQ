@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AptiQ</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='timer.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='button.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='radio.css') }}">
+        <link rel="icon" href="{{ url_for('static',filename='icon.png') }}" type="png">
+        <script>
+            var f=0;
+            function set() {
+                f=1;
+            }
+
+            window.onbeforeunload = function() {
+                if(f==0)
+                    return "Data will be lost if you leave the page, are you sure?";
+            };
+        </script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </head>
+    <body style="background-color: #494949; padding-top: 130px;">
+        <div class="fixed-top">
+            <div class="jumbotron" style="padding: 20px; margin: 0px; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; background-color: #262626;">
+                <div class="row">
+                    <div class="col my-auto">
+                        <div class="float-right">
+                            <h1 style="color: #d4d4d4;">AptiQ</h1>
+                        </div>
+                    </div>
+                    <div class="col my-auto">
+                        <div class="float-left">
+                            <div id="timeit"></div>        
+                            <script src="{{ url_for('static',filename='timer.js') }}"></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <form action="/result" method="POST">
+            {% for i in range(15) %}
+                <div style="background-color: #262626; border-radius: 10px; padding: 10px; margin: 10px; margin-left: 30px; margin-right: 30px; width: fit-content;">
+                    <p style="color: #d4d4d4; margin: 0px;"><b>{{ i+1 }})</b> {{ l[i][1] }}</p>
+                </div>
+                <input class="form-radio" type="radio" id="a{{ i }}" name="q{{ i }}" value="0">
+                <label for="0">{{ l[i][2] }}</label>
+                <br>
+                <input class="form-radio" type="radio" id="b{{ i }}" name="q{{ i }}" value="1">
+                <label for="1">{{ l[i][3] }}</label>
+                <br>
+                <input class="form-radio" type="radio" id="c{{ i }}" name="q{{ i }}" value="2">
+                <label for="2">{{ l[i][4] }}</label>
+                <br>
+                <input class="form-radio" type="radio" id="d{{ i }}" name="q{{ i }}" value="3">
+                <label for="3">{{ l[i][5] }}</label>
+            {% endfor %}
+            <br>
+            <br>
+            <center>
+                <button id="sub" name="sub" class="button" type="submit" onclick="set()" style="background-color: #262626; align-self: center;"><span>Submit </span></button>
+            </center>
+        </form>
+        <br><br>
+    </body>
+</html>
